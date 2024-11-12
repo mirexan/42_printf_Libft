@@ -3,7 +3,7 @@
 
 int	main()
 {
-	int d = 450;
+	int d = 'a';
 	int neg = -2;
 	unsigned int	prueba = 0xa;
 	int	len;
