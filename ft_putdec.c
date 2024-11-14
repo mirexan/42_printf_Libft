@@ -6,11 +6,11 @@
 /*   By: mregada- <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/12 12:18:44 by mregada-          #+#    #+#             */
-/*   Updated: 2024/11/12 15:00:50 by mregada-         ###   ########.fr       */
+/*   Updated: 2024/11/12 15:21:06 by mregada-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "printf.h"
+#include "ft_printf.h"
 static int	counter(unsigned int unum)
 {
 	int	len;
@@ -38,7 +38,8 @@ static char	*ft_uitoa(unsigned int unum)
 	resultado[len] = '\0';
 	while (len > 0)
 	{
-		resultado[len--] = (unum % 10) + '0';
+		len--;
+		resultado[len] = (unum % 10) + '0';
 		unum = (unum/ 10);
 	}
 	return (resultado);

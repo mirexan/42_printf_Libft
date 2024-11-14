@@ -6,11 +6,11 @@
 /*   By: mregada- <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/29 11:58:03 by mregada-          #+#    #+#             */
-/*   Updated: 2024/11/12 12:14:54 by mregada-         ###   ########.fr       */
+/*   Updated: 2024/11/12 15:17:28 by mregada-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "printf.h"
+#include "ft_printf.h"
 
 static int	selector(char format, va_list args)
 {
@@ -25,6 +25,11 @@ static int	selector(char format, va_list args)
 		return (ft_puthex(format, args));
 	if(format == 'i' || format == 'd' || format == 'u')
 		return (ft_putdec(format, args));
+	if (format == '%')
+	{
+		ft_putchar_fd('%', 1);
+		return (1);
+	}
 	return (0);
 }
 
@@ -41,19 +46,6 @@ int	ft_printf(char const * str, ...)
 		{
 			str++;
 			count += (selector(*str, args));
-			/*if(*str == 'd')
-				ft_putnbr_fd(va_arg(args, int));
-			if(*str == 'i')
-				ft_putnbr_fd(va_arg(args, int));
-			if(*str == 'u')
-				ft_putunsigned(va_arg(args,int));
-			if(*str == 'x')
-				ft_puthex_min(va_arg(args, float));
-			if(*str == 'X')
-				ft_puthex_may(va_arg(args, float));
-			if(*str == %)
-				ft_putchar_fd('%');
-			count++; */
 			str++;
 		}
 		else 
